@@ -69,15 +69,17 @@ function AccordionWindowItem({
     <div key={name} className="flex flex-row">
       {isShow ? (
         <Resizable className="border-r" minWidth={550} enable={{right: true}}>
-          <h2
-            title="Minimize tab"
-            aria-label="Minimize tab"
-            onClick={toggleTabs}
-            className={`p-4 duration-150 ease-in border-b cursor-pointer border-grey-200 ${
-              hasChanged ? 'font-bold' : 'font-light'
-            } text-secondary hover:text-link`}>
-            - {displayName}
-          </h2>
+          <div className="p-2">
+            <button
+              title="Minimize tab"
+              aria-label="Minimize tab"
+              onClick={toggleTabs}
+              className={`py-1.5 px-4 duration-150 ease-in cursor-pointer text-sm ${
+                hasChanged ? 'font-bold' : 'font-light'
+              } hover:text-link bg-highlight rounded-full inset-0 text-link`}>
+              - {displayName}
+            </button>
+          </div>
           {tabs.get(name) ?? <div>No output for {name}</div>}
         </Resizable>
       ) : (
